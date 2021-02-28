@@ -40,7 +40,7 @@ elif (operationChoice == "3") or (operationChoice == ("multiply")):
     mulNumberA = input()
     print ("Ok, and the second one: " , end="")
     mulNumberB = input()
-    sum = int (mulNumberA) - int (mulNumberB)
+    sum = int (mulNumberA) * int (mulNumberB)
     print ("Performing extreme calculations...")
     time.sleep(1)
     print ("The sum of {0} * {1} is {2}" .format(mulNumberA, mulNumberB, sum))
@@ -50,10 +50,11 @@ elif (operationChoice == "4") or (operationChoice == "divide"):
     divNumberA = input()
     print ("Ok, and the second one: ", end="")
     divNumberB = input()
-    sum = int (divNumberA) - int (divNumberB)
+    sum = int (divNumberA) / int (divNumberB)
     print ("Performing extreme calculations...")
     time.sleep(1)
     print ("The sum of {0} divided by {1} is {2}" .format(divNumberA, divNumberB, sum))      
+
 else:
     print("User input not recognized, please try again.")
     operationChoice = choice_function()
