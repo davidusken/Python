@@ -50,14 +50,6 @@ elif (operationChoice == "4") or (operationChoice == "4.") or (operationChoice =
 else:
     print("User input not recognized, please try again.")
 
-### Changelog
-### 1.01 
-# Reduced sleep timer for testing reasons.
-# Added subtraction, multiplication and dividing.
-# Reduced chances of wrong user input
-# Added user message on wrong input
-
-
 ### Future improvements:
 # Add squaring as a operation
 # Easter egg for special numbers
