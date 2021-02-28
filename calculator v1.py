@@ -8,21 +8,57 @@ print("4. Divide")
 print("Enter: ") 
 operationChoice = input()
 
-if operationChoice == "1":
+if (operationChoice == "1") or (operationChoice == "1.") or (operationChoice == "Add") or (operationChoice == "add"):
     print("Enter the first number you want to add")
     addNumberA = input()
     print ("Ok, and the second one?")
     addNumberB = input()
     sum = int (addNumberA) + int (addNumberB)
     print ("Performing extreme calculations...")
-    time.sleep(3)
+    time.sleep(1)
     print ("The sum of {0} + {1} is {2}" .format(addNumberA, addNumberB, sum))
-    ### OLD
-    #print ("The answer is ", sum)
-    #print ("The answer is " + (int(addNumberA)) + (int(addNumberB)))
+
+elif (operationChoice == "2") or (operationChoice == "2.") or (operationChoice == "Subtract") or (operationChoice == "subtract"):
+    print("Enter the first number you want to subtract")
+    addNumberA = input()
+    print ("Ok, and the second one?")
+    addNumberB = input()
+    sum = int (addNumberA) - int (addNumberB)
+    print ("Performing extreme calculations...")
+    time.sleep(1)
+    print ("The sum of {0} - {1} is {2}" .format(addNumberA, addNumberB, sum))
+
+elif (operationChoice == "3") or (operationChoice == "3.") or (operationChoice == "Multiply") or (operationChoice == ("multiply")):
+    print("Enter the first number you want to multiply")
+    addNumberA = input()
+    print ("Ok, and the second one?")
+    addNumberB = input()
+    sum = int (addNumberA) - int (addNumberB)
+    print ("Performing extreme calculations...")
+    time.sleep(1)
+    print ("The sum of {0} * {1} is {2}" .format(addNumberA, addNumberB, sum))
+
+elif (operationChoice == "4") or (operationChoice == "4.") or (operationChoice == "Divide") or (operationChoice == "divide"):
+    print("Enter the first number you want to divide")
+    addNumberA = input()
+    print ("Ok, and the second one?")
+    addNumberB = input()
+    sum = int (addNumberA) - int (addNumberB)
+    print ("Performing extreme calculations...")
+    time.sleep(1)
+    print ("The sum of {0} divided by {1} is {2}" .format(addNumberA, addNumberB, sum))      
 else:
-    print("Done")
+    print("User input not recognized, please try again.")
+
+### Changelog
+### 1.01 
+# Reduced sleep timer for testing reasons.
+# Added subtraction, multiplication and dividing.
+# Reduced chances of wrong user input
+# Added user message on wrong input
+
+
 ### Future improvements:
-# Allow user to write out choice instead of using number, non case sensitive.
 # Add squaring as a operation
 # Easter egg for special numbers
+# Allow text input from user e.g (52 * 12) + 90 / 3
