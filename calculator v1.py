@@ -42,7 +42,7 @@ elif (operationChoice == "4") or (operationChoice == "divide"):
     sum = int (divNumberA) / int (divNumberB)
     print ("Performing extreme calculations...")
     time.sleep(1)
-    print ("The sum of {0} divided by {1} is {2}" .format(divNumberA, divNumberB, sum:int))      
+    print ("The sum of {0} divided by {1} is {2}" .format(divNumberA, divNumberB, sum))      
 else:
     print("User input not recognized, please try again.")
     operationChoice = choice_function()
