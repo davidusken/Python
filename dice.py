@@ -1,27 +1,50 @@
+import time
 from random import randrange
 
 diceAmount = None
+diceRoll = None
 
 # Start of program for easy reuse
 def welcomeScreen():
     print("##########################\n####### Dice roller ######\n##########################\n\nHow many dices do you want to roll? (1-10)")
-    #hashtag spam should be replaced by for loops (26 characters)
+    #Fix hashtag spam
     return input("Enter: ")
 
 diceAmount = int(welcomeScreen())
 
-# Condition to ensure input is valid
-if diceAmount > 1 and diceAmount < 11:
-    print ("Your input is valid, proceeding...")
+def rollConditions():
+    # Condition to ensure input is valid
+    if diceAmount > 1 and diceAmount < 11:
+        print ("Your input is valid, proceeding...")
+    else:
+        print ("User input not recognized, please try again.")
+    # Determine grammar 
+    if diceAmount > 0 and diceAmount < 2:
+        print ("Getting {0} die" .format(diceAmount))
+    elif diceAmount > 1 and diceAmount < 11:
+        print ("Getting {0} dice" .format(diceAmount))
+
+rollConditions()
+
+# Roll dice
+def diceRollfunction():
+    print("Rolling your dice... ")
+    time.sleep(0.5)
+    print("Your die rolls ", end="")
+    print(randrange(6))
+    return input
+
+diceRoll = (diceRollfunction())
+
+#End screen / rerun
+rollAgain = input("Do you want to roll again? (y/n) ")
+if (rollAgain == "y") or (rollAgain == "yes"):
+    welcomeScreen()
+    rollConditions()
+    diceRollfunction()
 else:
-    print ("User input not recognized, please try again.")
+    print("Bye!")
 
-# Determine grammar 
-if diceAmount > 0 and diceAmount < 2:
-    print ("Very well, getting {0} die" .format(diceAmount))
-elif diceAmount > 1 and diceAmount < 11:
-    print ("Very well, getting {0} dice" .format(diceAmount))
-
-# Roll
-print("Rolling your first dice ", end="")
-print(randrange(6))
+#for i in range (diceAmount):
+#    print
+#else:
