@@ -1,6 +1,9 @@
+# Author: David Usken
+
 import time
 import random
 
+# Main function
 def mainRoller():
     print("##########################\n####### Dice roller ######\n##########################\n\n")
     diceAmount = int(getDiceAmount())
@@ -11,19 +14,19 @@ def mainRoller():
     if (rollAgain == "y") or (rollAgain == "yes"):
         mainRoller()
     else:
-        print("Bye!")
+        print("Thanks for playing!")
 
-# Start of program for easy reuse
+# User input for Dice amount
 def getDiceAmount():
     print("How many dice do you want to roll? (1-10)")
-    #Fix hashtag spam
     return input("Enter: ")
 
+# Conditions
 def rollConditions(diceAmount):
     # Condition to ensure input is valid
     if diceAmount > 1 and diceAmount < 11:
         print ("Your input is valid, proceeding...")
-        # Determine grammar
+        # Condition for grammar
         if diceAmount > 0 and diceAmount < 2:
             print ("Getting {0} die" .format(diceAmount))
         elif diceAmount > 1 and diceAmount < 11:
