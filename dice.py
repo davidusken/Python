@@ -5,7 +5,7 @@ import random
 
 # Main function
 def mainRoller():
-    print("##########################\n####### Dice roller ######\n##########################\n\n")
+    print("##########################\n####### Dice roller ######\n##########################\n")
     diceAmount = int(getDiceAmount())
     while rollConditions(diceAmount) is False: 
         diceAmount = int(getDiceAmount())
@@ -24,7 +24,7 @@ def getDiceAmount():
 # Conditions
 def rollConditions(diceAmount):
     # Condition to ensure input is valid
-    if diceAmount > 1 and diceAmount < 11:
+    if diceAmount > 0 and diceAmount < 11:
         print ("Your input is valid, proceeding...")
         # Condition for grammar
         if diceAmount > 0 and diceAmount < 2:
