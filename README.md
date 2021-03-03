@@ -6,7 +6,7 @@ Various Python programs for learning purposes.
 - [Hello World](https://github.com/davidusken/Python/blob/main/hello_world.py)  
     - *28.02.2021* - Basic "Hello World!"  
   
-- [Basic calculator](https://github.com/davidusken/Python/blob/main/calculator_v1.py)  
+- [Basic calculator](https://github.com/davidusken/Python/blob/main/calculator_v1.py)
     - *28.02.2021* - Calculator with options for adding, subtracting, multiplying and dividing. 
   
 - [Dice program](https://github.com/davidusken/Python/blob/main/dice.py) *01.03.2021* - Dice roller, with a total of 10 dice possible.  
