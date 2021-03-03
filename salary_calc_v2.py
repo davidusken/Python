@@ -100,7 +100,11 @@ def timeOrFixed():
 def output(): 
     #table brutto/netto/feriepenger/skatt/netto per mnd (halv dec)
 
+#def moreOutput():
+    # input("")
 ### Improvements 
 # Lønnsoppgjør beregning fra %
+# Add moreOutput as an option after confirming details and before printing output. Should include weekly pay, daily pay, hourly pay, minute pay and pay per second.
+# If time based, check how it will vary from month to month
 
 main()
