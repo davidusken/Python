@@ -16,4 +16,4 @@ Various Python programs for learning purposes.
     - *02.03.2021* - Salary calculator based on hourly wage for either time based or fixed salary. Assumptions made found in top of code.  
   
 - [Salary calculator V2](https://github.com/davidusken/Python/blob/main/salary_calc_v2.py) 
-    - *03.03.2021* - An improved salary calculator, allowing the user to either calculate based on hourly wage or yearly salary. Takes into account things like, time based or fixed salary, input mistakes, tax, working hours per week, weeks of vacation (sum is deducted from yearly salary), holiday pay adjustment, half taxes in December and a well formatted output. Certain inputs also keep a default value for convenient reasons. 
+    - *03.03.2021* - An improved salary calculator, allowing the user to either calculate based on hourly wage or yearly salary. Takes into account things like, time based or fixed salary, input mistakes, tax, working hours per week, weeks of vacation (sum is deducted from yearly salary), holiday pay adjustment, half taxes in December and a well formatted output. Certain input fields also keep a default value for convenient reasons. 
