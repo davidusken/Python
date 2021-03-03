@@ -1,2 +1,3 @@
 # Python
-3 months of Python scripting
+
+Various Python programs for learning purposes.
