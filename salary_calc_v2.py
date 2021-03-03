@@ -99,7 +99,7 @@ def timeOrFixed():
 
 def output(): 
     #table brutto/netto/feriepenger/skatt/netto per mnd (halv dec)
-
+    # print using format function
 #def moreOutput():
     # input("")
 ### Improvements 
