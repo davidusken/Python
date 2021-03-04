@@ -53,15 +53,17 @@ def miscInput():
 
     timeOrFixed()
 
-    #tax
+    taxPerc = input("Enter how much you pay in taxes [Default 33%]: ")
+    if len (taxPerc) == 0 :
+        taxPerc = float(33%)
 
     hoursPerWeek = input("Enter amount of hours per week [Default 37.5]: ")
     if len (hoursPerWeek) == 0 :
         hoursPerWeek = float(37.5)
 
-    holidayWeeks = input("Enter how many weeks of holiday [Default 5]: ")
-    if len (holidayWeeks) == 0 :
-        holidayWeeks = int(5)
+    vacWeeks = input("Enter how many weeks of vacation [Default 5]: ")
+    if len (vacWeeks) == 0 :
+        vacWeeks = int(5)
 
     holPay = input("Enter percentage [Default 12%]: ")
     if len (holPay) == 0 :
@@ -78,8 +80,18 @@ def miscInput():
         print("User input not recognized, try again.")
 
 def confirmInput():
+    print("""You entered the following information:\n
+    You want to base your calculations on a {} basis\n
+    Your wage\salary {} is per hour\year\n
+    You work a total of {} hours per week.\n 
+    You have a total of {vacWeeks}weeks of vacation\n 
+    Your holiday pay is {} % of your yearly income\n 
+    You pay 50% less tax in December (if true) \n")
+    input("Press ENTER to continue or ESC to restart""")
 
 def salaryCalc():
+
+# Info collected so far: calc choice, time or fixed, tax, hours per week, vacation weeks, holiday pay, december tax
 
 # holpay = yearlysal * float(0.12)
 # Yearly sal formula 1762 * timelønn * 0.12 - 5 uker ferie (25 * 5 * 7.5) * timelønn. # yearly - sum fra feriepengtrekk = Yearly
@@ -100,8 +112,10 @@ def timeOrFixed():
 def output(): 
     #table brutto/netto/feriepenger/skatt/netto per mnd (halv dec)
     # print using format function
+
 #def moreOutput():
-    # input("")
+    # input("Do you want more details? [Y/N]")
+
 ### Improvements 
 # Lønnsoppgjør beregning fra %
 # Add moreOutput as an option after confirming details and before printing output. Should include weekly pay, daily pay, hourly pay, minute pay and pay per second.
