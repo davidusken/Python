@@ -20,7 +20,7 @@ def userInput():
         print("User input not recognized, please try again.")
         hourlyWage = input("Enter your hourly wage: ")
 
-    typeSalary = input ("Time based or fixed salary?\nEnter:")
+    typeSalary = input ("Time based or fixed salary?\nEnter: ")
     typeSalary = typeSalary.lower()
 
     if (typeSalary == "time based") or (typeSalary == "time"):
@@ -45,7 +45,7 @@ def salaryCalc(hourlyWage):
 
     # Find yearly salary
     global yearlySal 
-    yearlySal = int (hourlyWage) * 1695
+    yearlySal = int (hourlyWage) * 1762
 
     # Find feriepenger
     global feriePeng 

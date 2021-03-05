@@ -1,4 +1,5 @@
 # Author: David Usken
+# Program: Roll multiple dice based on user input
 
 import time
 import random
