@@ -1,5 +1,6 @@
 # Author: David Usken
 # Program: Salary calculator v2
+# Dependencies: tabulate - https://pypi.org/project/tabulate/
 
 import math
 from tabulate import tabulate
@@ -91,18 +92,47 @@ def confirmInput():
     You have a total of {vacWeeks}weeks of vacation\n 
     Your holiday pay is {} % of your yearly income\n 
     You pay 50% less tax in December (if true) \n")
-    input("Press ENTER to continue or ESC to restart""")
+    input("Press ENTER to continue or ESC to restart""" .format)
 
 #def salaryCalc():
 
 # Info collected so far: calc choice, time or fixed, tax, hours per week, vacation weeks, holiday pay, december tax
-
 # Weekly salary is needed for accurate sum to deduct from amount of vacation weeks taken
 
 # holpay = yearlysal * float(0.12)
 # Yearly sal formula 1762 * timelønn * 0.12 - 5 uker ferie (25 * 5 * 7.5) * timelønn. # yearly - sum fra feriepengtrekk = Yearly
 # worked hours per year with 5 weeks of holiday = 1950 - 5 ferie uker 1762 (kalkuler, 5 dager per ferieuke mindre. )
 
+
+# Calculate yearly salary using hourly wages
+if hourlySal is True
+    yearlySal = float(hourlySal) * 1762
+else:
+    quit()
+
+# Calculate hourly wages using yearly salary
+if yearlySal is True:
+    hourlySal = float(yearlySal) / 1762
+else:
+    quit()
+
+# Calculate holiday pay
+
+# Calculate monthly salary
+
+# Calculate weekly salary
+
+# Calculate daily salary
+
+# Calculate hourly wages
+
+# Calculate December tax
+if decTax is True:
+    decTax = (float(decSal)) * 0.33) * 0.50
+    decSal = (float(decSal)) - (float(decTax))
+else:
+    quit()
+    
 def timeOrFixed():
     typeSalary = input ("Time based or fixed salary?\nEnter: ")
     typeSalary = typeSalary.lower()
