@@ -2,6 +2,7 @@
 # Program: Salary calculator v2
 
 import math
+from tabulate import tabulate
 
 def main():
     mainmenu()
@@ -19,7 +20,7 @@ def mainMenu():
     salType = salType.lower()
     salType = salType.replace(".", "")
 
-# Validate input
+# Validate option 
 def validOpt():
     if (salType =="1") or (salType == "hourly") or (salType == hourly wage)
         salType = hourlyWage
@@ -93,6 +94,8 @@ def salaryCalc():
 
 # Info collected so far: calc choice, time or fixed, tax, hours per week, vacation weeks, holiday pay, december tax
 
+# Weekly salary is needed for accurate sum to deduct from amount of vacation weeks taken
+
 # holpay = yearlysal * float(0.12)
 # Yearly sal formula 1762 * timelønn * 0.12 - 5 uker ferie (25 * 5 * 7.5) * timelønn. # yearly - sum fra feriepengtrekk = Yearly
 # worked hours per year with 5 weeks of holiday = 1950 - 5 ferie uker 1762 (kalkuler, 5 dager per ferieuke mindre. )
@@ -109,9 +112,21 @@ def timeOrFixed():
         typeSalary = fixed
         return typeSalary
 
+# Tabulate library for table print
 def output(): 
-    #table brutto/netto/feriepenger/skatt/netto per mnd (halv dec)
-    # print using format function
+
+grossSalJan = int(15000)
+netSalJan = int(10000)
+taxJan = int(5000)
+
+table = [["January",grossSalJan,netSalJan,taxJan],["February",0,0,0],["March",0,0,0]]
+headers = ["Gross salary", "Net salary", "Tax"]
+
+print(tabulate(table, headers, tablefmt="pretty"))
+
+# Print new table with yearlysal\feriepeng\total tax
+
+# Condition if time based output sal\holpay june, if fixed output only holpay june
 
 #def moreOutput():
     # input("Do you want more details? [Y/N]")
