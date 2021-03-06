@@ -5,27 +5,30 @@ import math
 from tabulate import tabulate
 
 def main():
-    mainmenu()
+    mainMenu()
     validOpt()
-    if saltype hourly is True # Run only if salType is hourly
-        hourlyInput()
-    if saltype yearly is True
-        yearlyInput()
+  #  if saltype hourly is True # Run only if salType is hourly
+       # hourlyInput()
+   # if saltype yearly is True
+       # yearlyInput()
+    print(salType)
 
 # Options menu
 def mainMenu():
     print("\nSelect input type for calculation:\n")
     print("1. Hourly wage\n2. Yearly salary\n")
+    global salType
     salType = input("Enter: ")
     salType = salType.lower()
     salType = salType.replace(".", "")
+    return salType
 
 # Validate option 
-def validOpt():
-    if (salType =="1") or (salType == "hourly") or (salType == hourly wage)
+def validOpt(salType):
+    if (salType =="1") or (salType == "hourly") or (salType == "hourly wage"):
         salType = hourlyWage
         return hourlyWage
-    elif (salType == "2") or (salType == "yearly") or (salType == yearly salary)
+    elif (salType =="2") or (salType == "yearly") or (salType == "yearly salary"):
         salType = yearlySal
         return yearlySal
     else:
@@ -56,7 +59,7 @@ def miscInput():
 
     taxPerc = input("Enter how much you pay in taxes [Default 33%]: ")
     if len (taxPerc) == 0 :
-        taxPerc = float(33%)
+        taxPerc = float(33)
 
     hoursPerWeek = input("Enter amount of hours per week [Default 37.5]: ")
     if len (hoursPerWeek) == 0 :
@@ -73,9 +76,9 @@ def miscInput():
     decTax = input("Do you pay half of the normal monthly tax in December? [Y/N]")
     decTax = decTax.lower()
 
-    if decTax = "y"
+    if decTax == ("y"):
         decTax is True
-    elif decTax = "n"
+    elif decTax == ("n"):
         decTax is False
     else:
         print("User input not recognized, try again.")
@@ -90,7 +93,7 @@ def confirmInput():
     You pay 50% less tax in December (if true) \n")
     input("Press ENTER to continue or ESC to restart""")
 
-def salaryCalc():
+#def salaryCalc():
 
 # Info collected so far: calc choice, time or fixed, tax, hours per week, vacation weeks, holiday pay, december tax
 
@@ -113,16 +116,21 @@ def timeOrFixed():
         return typeSalary
 
 # Tabulate library for table print
+
+grossSalJan = None
+netSalJan = None
+taxJan = None
+
 def output(): 
 
-grossSalJan = int(15000)
-netSalJan = int(10000)
-taxJan = int(5000)
+    grossSalJan = int(15000)
+    netSalJan = int(10000)
+    taxJan = int(5000)
+    
+    table = [["January",grossSalJan,netSalJan,taxJan],["February",0,0,0],["March",0,0,0]]
+    headers = ["Gross salary", "Net salary", "Tax"]
 
-table = [["January",grossSalJan,netSalJan,taxJan],["February",0,0,0],["March",0,0,0]]
-headers = ["Gross salary", "Net salary", "Tax"]
-
-print(tabulate(table, headers, tablefmt="pretty"))
+    print(tabulate(table, headers, tablefmt="pretty"))
 
 # Print new table with yearlysal\feriepeng\total tax
 
