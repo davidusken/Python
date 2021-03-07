@@ -104,7 +104,7 @@ def salaryCalc():
 # Worked hours per year with 5 weeks of holiday = 1950 - 5 ferie uker 1762 (kalkuler, 5 dager per ferieuke mindre. )
 
 # Calculate yearly salary using hourly wages
-if hourlySal is True
+if hourlySal is True:
     yearlySal = float(hourlySal) * 1762
 else:
     quit()
@@ -119,7 +119,7 @@ else:
 holPaySum = int(yearlySal) * float(holPay)
 
 # Calculate monthly salary
-monthlySal = float(hourlySal) * float(162.5)
+monthlySal = float(yearlySal) / float(12)
 
 # Calculate weekly salary
 weeklySal = float(hourlySal) * float(37.5)
@@ -154,28 +154,43 @@ def timeOrFixed():
 
 # Tabulate library for table print
 
-grossSalJan = None
-netSalJan = None
-taxJan = None
+grossSal = None
+netSal = None
+tax = None
 
 def output(): 
 
-    grossSalJan = int(15000)
-    netSalJan = int(10000)
-    taxJan = int(5000)
-    
-    table = [["January",grossSalJan,netSalJan,taxJan],["February",0,0,0],["March",0,0,0]]
-    headers = ["Gross salary", "Net salary", "Tax"]
-
-    print(tabulate(table, headers, tablefmt="pretty"))
-
-
-tabledict = {
+    tabledict = {
     'Month': []
     'Net salary': []
     'Gross salary': []
     'Tax' : []
-}
+    }
+
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+    for month in months:
+        datalist = None
+
+        if month == "Jun":
+            Jun = float(monthlySal) + float(holPaySum) - 5 * float(weeklySal)
+            datalist = [month, grossSal, netSal, tax]
+        elif month == "Dec":
+            Dec = float(monthlySal) + float(decTax)
+            datalist = [month, grossSal, netSal, tax]
+        else:
+            datalist = [month, grossSal, netSal, tax]
+        tabledict = addMonthData(datalist,tabledict)
+
+
+    print(tabulate(table, headers, tablefmt="pretty"))
+   
+    
+    
+    table = [["January",grossSalJan,netSalJan,taxJan],["February",0,0,0],["March",0,0,0]]
+    headers = ["Gross salary", "Net salary", "Tax"]
+
+    
 
 def addMonthData(datalist,tabledict):
     i = 0
@@ -192,6 +207,8 @@ def addMonthData(datalist,tabledict):
     #input("Do you want more details? [Y/N]")
     #print("Very well, generating some more details...")
     #time.sleep(1)
+
+#def addHolpayToYearly
 
 ### Improvements 
 # Lønnsoppgjør beregning fra %
