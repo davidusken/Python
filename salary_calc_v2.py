@@ -3,6 +3,7 @@
 # Dependencies: tabulate - https://pypi.org/project/tabulate/
 
 import math
+import time
 from tabulate import tabulate
 
 def main():
@@ -94,15 +95,13 @@ def confirmInput():
     You pay 50% less tax in December (if true) \n")
     input("Press ENTER to continue or ESC to restart""" .format)
 
-#def salaryCalc():
+def salaryCalc():
 
 # Info collected so far: calc choice, time or fixed, tax, hours per week, vacation weeks, holiday pay, december tax
 # Weekly salary is needed for accurate sum to deduct from amount of vacation weeks taken
 
-# holpay = yearlysal * float(0.12)
 # Yearly sal formula 1762 * timelønn * 0.12 - 5 uker ferie (25 * 5 * 7.5) * timelønn. # yearly - sum fra feriepengtrekk = Yearly
-# worked hours per year with 5 weeks of holiday = 1950 - 5 ferie uker 1762 (kalkuler, 5 dager per ferieuke mindre. )
-
+# Worked hours per year with 5 weeks of holiday = 1950 - 5 ferie uker 1762 (kalkuler, 5 dager per ferieuke mindre. )
 
 # Calculate yearly salary using hourly wages
 if hourlySal is True
@@ -117,14 +116,22 @@ else:
     quit()
 
 # Calculate holiday pay
+holPaySum = int(yearlySal) * float(holPay)
 
 # Calculate monthly salary
+monthlySal = float(hourlySal) * float(162.5)
 
 # Calculate weekly salary
+weeklySal = float(hourlySal) * float(37.5)
 
 # Calculate daily salary
+dailySal = float(hourlySal) * float(7.5)
 
-# Calculate hourly wages
+# Wages per minute
+wageMinute = float(hourlySal) / int(60)
+
+# Wages per second
+wageSecond = float(hourlySal) / int(3600)
 
 # Calculate December tax
 if decTax is True:
@@ -162,12 +169,29 @@ def output():
 
     print(tabulate(table, headers, tablefmt="pretty"))
 
+
+tabledict = {
+    'Month': []
+    'Net salary': []
+    'Gross salary': []
+    'Tax' : []
+}
+
+def addMonthData(datalist,tabledict):
+    i = 0
+    for list in tabledict:
+        list.append(datalist[i])
+        i += 1
+    return tabledict
+
 # Print new table with yearlysal\feriepeng\total tax
 
 # Condition if time based output sal\holpay june, if fixed output only holpay june
 
 #def moreOutput():
-    # input("Do you want more details? [Y/N]")
+    #input("Do you want more details? [Y/N]")
+    #print("Very well, generating some more details...")
+    #time.sleep(1)
 
 ### Improvements 
 # Lønnsoppgjør beregning fra %
