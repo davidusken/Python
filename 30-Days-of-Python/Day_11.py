@@ -30,7 +30,7 @@ seq = range(37-74)
 guess = int(input("Enter guess: "))
 
 if guess > 37 and guess < 74:
-    print("Wow you rock!")
+    print("Your guess is within range!")
 elif guess < 37:
     print("Too low!")
 elif guess > 74:
