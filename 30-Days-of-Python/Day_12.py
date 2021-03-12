@@ -38,6 +38,9 @@ def multiply():
 
 #multiply()
 
+
+######### FIX ABOVE FUNCTIONS ##############
+
 # Define a function called print_show_info that has a single parameter. The argument passed to it will be a dictionary with some information about a T.V. show. For example:
 # The print_show_info function should print the information stored in the dictionary, in a nice way. For example:
 # Breaking Bad (2008) - 5 seasons - Remember you must define your function before calling it!
