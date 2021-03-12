@@ -7,39 +7,37 @@
 # For example, if the user passes in 6 and 2 to subtract, the result should be 4, not -4.
 # You should also make sure that the user can’t pass in 0 as the second argument for divide. If the user provides 0, you should print a warning instead of calculating their division.
 
-def add():
-    addA = int(input("Enter the first number: "))
-    addB = int(input("Enter the second number: "))
-    print(addA + addB)
-
-#add()
-
-def subtract():
-    subA = int(input("Enter the first number: "))
-    subB = int(input("Enter the second number: "))
-    print(subA - subB)
-
-#subtract()
-
-def divide():
-    divA = int(input("Enter the first number: "))
-    divB = int(input("Enter the second number: "))
-    if divB == 0:
-            print("You can't do that! Try again.")
-            divide()
-    print(divA / divB)
-
-#divide()
-
-def multiply():
-    mulA = int(input("Enter the first number: "))
-    mulB = int(input("Enter the second number: "))
-    print(mulA * mulB)
-
-#multiply()
+def add(firstvalue, secondvalue):
+    print(firstvalue + secondvalue)
 
 
-######### FIX ABOVE FUNCTIONS ##############
+def subtract(firstvalue, secondvalue):
+    print(firstvalue - secondvalue)
+
+
+def divide(firstvalue, secondvalue):
+    if secondvalue == 0:
+            quit("You can't do that!")
+    print(firstvalue / secondvalue)
+
+
+def multiply(firstvalue, secondvalue):
+    print(firstvalue * secondvalue)
+
+# Main (input/menu)
+firstvalue = int(input("Enter first value: "))
+secondvalue = int(input("Enter second value: "))
+userchoice = input("\nWhat operation do you wish to perform?\n1. Add\n2. Subtract\n3. Divide\n4. Multiply\nEnter choice: ")
+if userchoice == "1":
+    add(firstvalue, secondvalue)
+elif userchoice == "2":
+    subtract(firstvalue, secondvalue)
+elif userchoice == "3":
+    divide(firstvalue, secondvalue)
+elif userchoice == "4":
+    multiply(firstvalue, secondvalue)
+else:
+    print("Invalid input, try again.")
 
 # Define a function called print_show_info that has a single parameter. The argument passed to it will be a dictionary with some information about a T.V. show. For example:
 # The print_show_info function should print the information stored in the dictionary, in a nice way. For example:
@@ -78,8 +76,7 @@ for show in series:
 # Once you’ve found whether or not a word is a palindrome, you should print the result to the user. Make sure to clean up the argument provided to the function. We should be stripping whitespace from both 
 # ends of the string, and we should convert it all to the same case, just in case we’re dealing with a name, like “Hannah”.
 
-
-
+# Vars needed
 userword = None
 reverseword = None
 
