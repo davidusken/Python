@@ -48,33 +48,25 @@ def find_books():
     
     return matching_books
 
-def delete_book():
+def delete_book(books, book_to_delete):
+    books.remove(book_to_delete)
+
+
+def mark_book_as_read(books, books_to_update):
+    index = books.index(books_to_update)
+    books[index]['read'] = "Read"
+
+
+def update_reading_list(operation):
     books = get_all_books()
     matching_books = find_books()
 
     if matching_books:
-        books.remove(matching_books[0])
+        operation(books,matching_books[0])
 
         with open("books.csv", "w") as reading_list:
             for book in books:
                 reading_list.write(f"{book['title']},{book['author']},{book['year']},{book['read']}\n")
-    else:
-        print("Did not find any books with that title.")
-
-
-def mark_book_as_read():
-    books = get_all_books()
-    matching_books = find_books()
-
-    if matching_books:
-        index = books.index(matching_books[0])
-        books[index]['read'] = "Read"
-
-        with open("books.csv", "w") as reading_list:
-            for book in books:
-                reading_list.write(f"{book['title']},{book['author']},{book['year']},{book['read']}\n")
-    else:
-        print("Sorry, we didn't find any books matching that title.")
 
 menu_prompt = """Please enter one of the following options:
 
@@ -93,7 +85,7 @@ while selected_option != "q":
     if selected_option == "a":
         add_book()
     elif selected_option == "d":
-        delete_book()
+        update_reading_list(delete_book)
     elif selected_option == "l":
         reading_list = get_all_books()
         if reading_list:
@@ -101,10 +93,9 @@ while selected_option != "q":
         else:
             print("Your reading list is empty.")
     elif selected_option == "r":
-        mark_book_as_read()
+        update_reading_list(mark_book_as_read)
     elif selected_option == "s":
         matching_books = find_books()
-
         if matching_books:
             show_books(matching_books)
         else:
