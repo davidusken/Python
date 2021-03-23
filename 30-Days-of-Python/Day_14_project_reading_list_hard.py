@@ -9,88 +9,107 @@
 # Users should be able to delete books from their reading list by providing the book title for the book they want to delete. Once again, you can just delete the first matching book.
 # Users should be able to select these options from a text menu, and they should be able to perform multiple operations without restarting the program. You can see an example of a working menu in the post on while loops (day 8).# Day 14 Project: Reading List (Hard Version)
 
-def addbook():
-    title = input("Enter book title: ").strip().title()
-    author = input("Enter author: ").strip().title()
-    year = input("Enter year of publication: ").strip().title()
-    print("\nAdding book to list...")
-    with open ("books.csv", "a") as f:
-        f.write(f"{title},{author},{year}\n")
+# This program is written as code along and not owned or produced by me.
 
-def retrieve_books():
+def add_book():
+    title = input("Title: ").strip().title()
+    author = input("Author: ").strip().title()
+    year = input("Year: ").strip()
+
+    with open("books.csv", "a") as reading_list:
+        reading_list.write(f"{title},{author},{year},Not Read\n")
+        
+def get_all_books():
     books = []
-    with open ("books.csv", "r") as f:
-        for book in f:
-            title, author, year = book.strip().split(",")
 
-            books.append({
-                "title": title,
-                "author": author,
-                "year": year
-            })
+    with open("books.csv", "r") as reading_list:
+        for book in reading_list:
+            title, author, year, read_status = book.strip().split(",")
+            books.append({"title": title, "author": author, "year": year, "read": read_status})
     return books
 
-def view_books(books):
-    for i in books:
-        title, author, year = i.values()
-        print(f"{title} by {author}, year of publication: {year}")
+def show_books(books):
+    print()
 
-def del_book(books):
-    # f = retrieve_books()
-    # print(f)
-    # f.remove(title)
-    print(f)
-    for i in books:
-        title, author, year = i.values()
-        f.remove(title)
+    for book in books:
+        print(f"{book['title']}, by {book['author']} ({book['year']}) - {book['read']}")
+    
+    print()
 
-def main():
-    # Menu
-    print("\nSelect operation:\n\n1. Add book\n2. View books\n3. Search for book\n4. Quit")
-    userchoice= input("Enter: ")
+def find_books():
+    reading_list = get_all_books()
+    matching_books = []
 
-    if userchoice == "1": # Add
-        addbook()
+    search_term = input("Enter a book title: ").strip().lower()
 
-    elif userchoice == "2": # View
-        f = retrieve_books()
-        view_books(f)
+    for book in reading_list:
+        if search_term in book["title"].lower():
+            matching_books.append(book)
+    
+    return matching_books
 
-    elif userchoice == "3": # Search
-        search = input("Enter book title: ").strip().title()
-        f = retrieve_books()
-        for i in f:
-            title, author, year = i.values()
-            if search == title:
-                print()
-                print(f"'{title}' found in list.\n\n1. View information\n2. Mark as read\n3. Delete from reading list")
-                submenuchoice = input("Enter: ") 
-                if submenuchoice == "1":
-                    print(f"{title} by {author}, year of publication: {year}")
-                elif submenuchoice == "2":
-                    pass
-                elif submenuchoice == "3":
-                    #del_book(f)
-                    # f = retrieve_books()
-                    # print(f)
-                    # for i in f:
-                    #     title, author, year = i.values()
-                    #     f.remove(title)
-                    # print(f)
+def delete_book():
+    books = get_all_books()
+    matching_books = find_books()
 
-                    f = retrieve_books
-                    f.remove(search)
+    if matching_books:
+        books.remove(matching_books[0])
 
-
-
-
-
-
-    elif userchoice == "4":
-        print("Quitting...")
-        quit()
-
+        with open("books.csv", "w") as reading_list:
+            for book in books:
+                reading_list.write(f"{book['title']},{book['author']},{book['year']},{book['read']}\n")
     else:
-        print("Invalid option, try again.")
+        print("Did not find any books with that title.")
 
-main()
+
+def mark_book_as_read():
+    books = get_all_books()
+    matching_books = find_books()
+
+    if matching_books:
+        index = books.index(matching_books[0])
+        books[index]['read'] = "Read"
+
+        with open("books.csv", "w") as reading_list:
+            for book in books:
+                reading_list.write(f"{book['title']},{book['author']},{book['year']},{book['read']}\n")
+    else:
+        print("Sorry, we didn't find any books matching that title.")
+
+menu_prompt = """Please enter one of the following options:
+
+- 'a' to add a book
+- 'd' to delete a book
+- 'l' to list the books
+- 'r' to mark a book as read
+- 's' to search for a book
+- 'q' to quit
+
+What would you like to do? """
+
+selected_option = input(menu_prompt).strip().lower()
+
+while selected_option != "q":
+    if selected_option == "a":
+        add_book()
+    elif selected_option == "d":
+        delete_book()
+    elif selected_option == "l":
+        reading_list = get_all_books()
+        if reading_list:
+            show_books(reading_list)
+        else:
+            print("Your reading list is empty.")
+    elif selected_option == "r":
+        mark_book_as_read()
+    elif selected_option == "s":
+        matching_books = find_books()
+
+        if matching_books:
+            show_books(matching_books)
+        else:
+            print(f"No books with that title found.")
+    else:
+        print(f"'{selected_option}' is not a valid option!")
+    
+    selected_option = input(menu_prompt).strip().lower()
