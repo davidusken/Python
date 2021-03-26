@@ -12,11 +12,7 @@ for number in numbers:
 
 # Python operator ** = Exponentiation
 
-print(squares)
-print(numbers)
 numbers = [number ** 2 for number in numbers]
-print(numbers)
-
 
 # Use a dictionary comprehension to create a new dictionary from the dictionary below, where each of the values is title case.
 # Remember that iterating over a dictionary only gives us the keys by default. You can use the items method to get the keys and the values. 
@@ -27,3 +23,14 @@ movie = {
 	"producer": "kevin feige",
 	"production_company": "marvel studios"
 }
+
+# Creating the normal loop first
+
+movietitled = {}
+
+for key, value in movie.items():
+    movietitled.update({key: value.title()})
+
+# Comprehension
+
+movie = {key: value.title() for key, value in movie.items()}
