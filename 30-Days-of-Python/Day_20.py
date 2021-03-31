@@ -25,16 +25,28 @@ names = ("bob", "Christopher", "Rachel", "MICHAEL", "jessika", "francine")
 
 # Use a list comprehension with a filtering condition so that only names with fewer than 8 characters end up in the new list. Make sure that every name in the new list is in title case.
 
-def namelength(names):
-    return len(names)
+# Doing it in a normal loop first
+
+namelist = []
 
 for name in names:
-    if namelength > 8 == 0
+	len(name)
+	if len(name) < 8:
+			name.title()
+			namelist.append(name)
+			print(namelist)
+
+
+# def namelength(names):
+#     return len(names)
+
+# for name in names:
+#     if namelength > 8 == 0
 
 #shorternames = filter
 
-print(namelength(names))
-#names = filter[]
-print(names)
+# print(namelength(names))
+# #names = filter[]
+# print(names)
 
 # Use filter to remove all negative numbers from the following range: range(-5, 11). Print the remaining numbers to the console.
