@@ -1,6 +1,6 @@
 # Python
 
-Various Python programs for learning purposes.
+Various Python programs for learning purposes..
 
 ## Index
 
